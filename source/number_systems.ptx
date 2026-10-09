@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- CS 111 / CC-01. Adapted from ProfLehman's number_systems.md.
+     Copy the four referenced images into the PreTeXt project's assets/images/number_systems/ folder.
+     This is a SECTION to include inside a PreTeXt chapter, not a standalone project. -->
+<section xml:id="cc01-number-systems" xmlns:xi="http://www.w3.org/2001/XInclude">
+  <title>Number Systems: Decimal, Binary, and Hexadecimal</title>
+  <p>This resource reviews decimal, binary, and hexadecimal number systems and the conversions used in <em>CC-01 Data Representation</em>.</p>
+  <subsection xml:id="ns-reading"><title>Reading and Resources</title>
+    <ul>
+      <li><p><url href="https://runestone.academy/ns/books/published/welcomecs2/binary_binary-and-bits.html?mode=browsing">Welcome to CS: Binary and Bits</url></p></li>
+      <li><p><url href="https://runestone.academy/ns/books/published/welcomecs2/data-representation_number-systems-binary.html?mode=browsing">Welcome to CS: Number Systems and Binary</url></p></li>
+      <li><p><url href="https://runestone.academy/ns/books/published/welcomecs2/data-representation_binary-conversions-table-method.html?mode=browsing">Welcome to CS: Binary Conversions — Table Method</url></p></li>
+      <li><p><url href="https://runestone.academy/ns/books/published/welcomecs2/data-representation_hexadecimal.html?mode=browsing">Welcome to CS: Hexadecimal Numbers</url></p></li>
+      <li><p>Optional video: <url href="https://youtube.com/watch?v=HUL4T8WcFdA">Sesame Street Counting</url></p></li>
+    </ul>
+  </subsection>
+  <subsection xml:id="ns-decimal"><title>Decimal Number System</title>
+    <p>Humans commonly use the <em>decimal</em> number system.</p>
+    <figure xml:id="ns-fingers"><caption>Fingers and toes illustrate one possible reason base ten became common.</caption><image source="images/number_systems/fingers_and_toes.png" width="65%"/></figure>
+    <ul><li><p>Decimal is a <em>base 10</em> number system.</p></li><li><p>It uses ten symbols: <c>0, 1, 2, 3, 4, 5, 6, 7, 8, 9</c>.</p></li><li><p>Each position represents a power of 10.</p></li></ul>
+    <example><title>Decimal Place Values</title><p>Consider the number <c>2437</c>:</p>
+      <pre>decimal number:    2     4     3     7
+place values:    1000   100    10     1
+                  10^3  10^2   10^1   10^0</pre>
+      <p><m>2437 = (2\times1000)+(4\times100)+(3\times10)+(7\times1)</m>.</p>
+    </example>
+    <exercises><title>Quick Review</title>
+      <exercise><statement><p>How many symbols are used in decimal?</p></statement><choices><choice><statement><p>2</p></statement><feedback><p>Binary uses two symbols.</p></feedback></choice><choice correct="yes"><statement><p>10</p></statement><feedback><p>Correct. The symbols are 0 through 9.</p></feedback></choice><choice><statement><p>16</p></statement><feedback><p>Hexadecimal uses 16 symbols.</p></feedback></choice></choices></exercise>
+      <exercise><statement><p>In the decimal number <c>387</c>, what value does the digit <c>8</c> represent?</p></statement><choices><choice><statement><p>8</p></statement><feedback><p>Remember the tens place.</p></feedback></choice><choice correct="yes"><statement><p>80</p></statement><feedback><p>Correct: 8 tens.</p></feedback></choice><choice><statement><p>800</p></statement><feedback><p>The hundreds digit is 3.</p></feedback></choice></choices></exercise>
+      <exercise><statement><p>In the decimal number <c>29</c>, what value does the digit <c>9</c> represent?</p></statement><solution><p>9 ones.</p></solution></exercise>
+    </exercises>
+  </subsection>
+  <subsection xml:id="ns-binary"><title>Binary Number System</title>
+    <p>The <em>binary</em> number system has two symbols, <c>0</c> and <c>1</c>. It is base 2; each position represents a power of 2.</p>
+    <pre>binary number:      1    0    1    1
+place values:       8    4    2    1
+                    2^3  2^2  2^1  2^0</pre>
+    <p>Therefore, <c>1011</c> binary is 8 + 2 + 1 = 11 decimal.</p>
+    <p>At the computer hardware level, two states such as electricity off/on can represent binary values.</p>
+  </subsection>
+  <subsection xml:id="ns-binary-to-decimal"><title>Converting Binary to Decimal (Place Values Method)</title>
+    <ol><li><p>Write the binary place values below the digits. Start at 1 on the right and double as you move left.</p></li><li><p>Add the place values beneath each 1. The sum is the decimal value.</p></li></ol>
+    <example><title>Example A: 0110 1101</title><pre>binary number:    0   1   1   0     1   1   0   1
+place values:   128  64  32  16     8   4   2   1</pre><p><c>0110 1101</c> binary = 64 + 32 + 8 + 4 + 1 = <em>109 decimal</em>.</p></example>
+    <example><title>Example B: 1000 1010</title><pre>binary number:    1   0   0   0     1   0   1   0
+place values:   128  64  32  16     8   4   2   1</pre><p><c>1000 1010</c> binary = 128 + 8 + 2 = <em>138 decimal</em>.</p></example>
+    <remark><p>We separate groups of four bits with spaces for readability: <c>10101010</c> becomes <c>1010 1010</c>.</p></remark>
+    <exercises><title>Try It</title><exercise><statement><p>What decimal value is represented by binary <c>0100 1101</c>?</p></statement><choices><choice><statement><p>69</p></statement><feedback><p>Check whether you included the 8 place.</p></feedback></choice><choice correct="yes"><statement><p>77</p></statement><feedback><p>Correct: 64 + 8 + 4 + 1 = 77.</p></feedback></choice><choice><statement><p>109</p></statement><feedback><p>That is the value of 0110 1101.</p></feedback></choice></choices></exercise></exercises>
+  </subsection>
+  <subsection xml:id="ns-decimal-to-binary"><title>Converting Decimal to Binary</title>
+    <p>Use the place-value subtraction method:</p><ol><li><p>Find the largest binary place value that can be subtracted from the decimal number.</p></li><li><p>Subtract it and mark the position with 1.</p></li><li><p>Repeat until the remainder is zero.</p></li><li><p>Mark the unused positions with 0.</p></li></ol>
+    <example><title>Convert 43 Decimal to Binary</title><pre>binary digits:     0   0   1   0     1   0   1   1
+place values:    128  64  32  16     8   4   2   1
+
+43 - 32 = 11
+11 - 8  = 3
+ 3 - 2  = 1
+ 1 - 1  = 0</pre><p>Thus, 43 decimal = <c>0010 1011</c> binary. Check: 32 + 8 + 2 + 1 = 43.</p></example>
+    <example><title>Convert 134 Decimal to Binary</title><pre>binary digits:     1   0   0   0   0   1   1   0
+place values:    128  64  32  16   8   4   2   1
+
+134 - 128 = 6
+  6 - 4   = 2
+  2 - 2   = 0</pre><p>Thus, 134 decimal = <c>1000 0110</c> binary. Check: 128 + 4 + 2 = 134.</p></example>
+    <exercises><title>Binary Review</title>
+      <exercise><statement><p>What is the missing binary place value in <c>128 64 32 16 ___ 4 2 1</c>?</p></statement><choices><choice correct="yes"><statement><p>8</p></statement><feedback><p>Correct: each place is twice the place to its right.</p></feedback></choice><choice><statement><p>10</p></statement><feedback><p>Binary place values are powers of two.</p></feedback></choice><choice><statement><p>12</p></statement><feedback><p>Halve 16 to find the next place.</p></feedback></choice></choices></exercise>
+      <exercise><statement><p>What is the decimal value of <c>0100</c> binary?</p></statement><choices><choice><statement><p>2</p></statement><feedback><p>Use the 8, 4, 2, 1 places.</p></feedback></choice><choice correct="yes"><statement><p>4</p></statement><feedback><p>Correct, the 4 place is set.</p></feedback></choice><choice><statement><p>8</p></statement><feedback><p>The 8 place is zero.</p></feedback></choice></choices></exercise>
+    </exercises>
+  </subsection>
+  <subsection xml:id="ns-hex"><title>Hexadecimal Number System</title>
+    <p><em>Hexadecimal</em> (hex) is base 16. Its symbols are <c>0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F</c>.</p>
+    <table><title>Decimal, Hexadecimal, and Four-Bit Binary</title><tabular><row><cell>Decimal</cell><cell>Hex</cell><cell>Binary</cell></row>
+<row><cell>0</cell><cell>0</cell><cell>0000</cell></row>
+<row><cell>1</cell><cell>1</cell><cell>0001</cell></row>
+<row><cell>2</cell><cell>2</cell><cell>0010</cell></row>
+<row><cell>3</cell><cell>3</cell><cell>0011</cell></row>
+<row><cell>4</cell><cell>4</cell><cell>0100</cell></row>
+<row><cell>5</cell><cell>5</cell><cell>0101</cell></row>
+<row><cell>6</cell><cell>6</cell><cell>0110</cell></row>
+<row><cell>7</cell><cell>7</cell><cell>0111</cell></row>
+<row><cell>8</cell><cell>8</cell><cell>1000</cell></row>
+<row><cell>9</cell><cell>9</cell><cell>1001</cell></row>
+<row><cell>10</cell><cell>A</cell><cell>1010</cell></row>
+<row><cell>11</cell><cell>B</cell><cell>1011</cell></row>
+<row><cell>12</cell><cell>C</cell><cell>1100</cell></row>
+<row><cell>13</cell><cell>D</cell><cell>1101</cell></row>
+<row><cell>14</cell><cell>E</cell><cell>1110</cell></row>
+<row><cell>15</cell><cell>F</cell><cell>1111</cell></row>
+    </tabular></table>
+    <p>Hex positions are powers of 16, for example 4096, 256, 16, and 1.</p>
+    <pre>hex number:         0     1     A     4
+place values:     4096   256    16     1
+                    16^3  16^2   16^1   16^0</pre>
+  </subsection>
+  <subsection xml:id="ns-hex-decimal"><title>Supplemental: Converting Hexadecimal to Decimal</title>
+    <p>This conversion is included from the original resource as enrichment; it is not part of the currently emphasized CC-01 conversion objectives.</p>
+    <ol><li><p>Write hexadecimal place values starting with 1 on the right and multiplying by 16 toward the left.</p></li><li><p>Convert letters to their numerical values (A=10 through F=15).</p></li><li><p>Multiply each digit by its place value and add the results.</p></li></ol>
+    <example><title>Example A: 6D</title><pre>hex number:       6    D
+place values:    16    1
+6D hex = (6 x 16) + (13 x 1) = 109 decimal</pre></example>
+    <example><title>Example B: 8A</title><pre>hex number:       8    A
+place values:    16    1
+8A hex = (8 x 16) + (10 x 1) = 138 decimal</pre></example>
+    <example><title>Example C: 23</title><pre>hex number:       2    3
+place values:    16    1
+23 hex = (2 x 16) + (3 x 1) = 35 decimal</pre><p>A hexadecimal number does not need to contain any letters.</p></example>
+    <exercises><title>Hex Review</title><exercise><statement><p>What decimal number does the hex digit <c>C</c> represent?</p></statement><choices><choice><statement><p>10</p></statement><feedback><p>A represents 10.</p></feedback></choice><choice correct="yes"><statement><p>12</p></statement><feedback><p>Correct: A=10, B=11, C=12.</p></feedback></choice><choice><statement><p>16</p></statement><feedback><p>Hex is base 16, but C is 12.</p></feedback></choice></choices></exercise></exercises>
+  </subsection>
+  <subsection xml:id="ns-hex-binary"><title>Hexadecimal and Binary</title>
+    <p>Hexadecimal is convenient shorthand for binary: <em>one hexadecimal digit represents four binary digits (bits)</em>. The four place values are <c>8 4 2 1</c>.</p>
+    <subsubsection xml:id="ns-hex-to-binary"><title>Hex to Binary</title><p>Expand each hex digit into four bits, treating each group separately.</p>
+      <example><title>Convert 3A Hex to Binary</title><pre>3A hex = 0011 1010 binary
+
+binary model: 8 4 2 1   8 4 2 1
+binary digits:0 0 1 1   1 0 1 0
+
+2 + 1 = 3, 8 + 2 = 10 (A)</pre></example>
+      <p>Additional examples: <c>B7</c> = <c>1011 0111</c>; <c>6A</c> = <c>0110 1010</c>; <c>54</c> = <c>0101 0100</c>; <c>F2</c> = <c>1111 0010</c>.</p>
+      <exercise><statement><p>Convert <c>B7</c> hexadecimal to binary.</p></statement><choices><choice correct="yes"><statement><p><c>1011 0111</c></p></statement><feedback><p>Correct: B = 1011 and 7 = 0111.</p></feedback></choice><choice><statement><p><c>1100 0111</c></p></statement><feedback><p>1100 is C, not B.</p></feedback></choice><choice><statement><p><c>1011 1110</c></p></statement><feedback><p>1110 is E, not 7.</p></feedback></choice></choices></exercise>
+    </subsubsection>
+    <subsubsection xml:id="ns-binary-to-hex"><title>Binary to Hex</title><p>Divide binary digits into four-bit groups, then convert each group to one hex digit.</p>
+      <example><title>Convert 1011 1100 to Hex</title><pre>binary model: 8 4 2 1   8 4 2 1
+binary digits:1 0 1 1   1 1 0 0
+
+8 + 2 + 1 = 11 (B)
+8 + 4     = 12 (C)</pre><p>Therefore <c>1011 1100</c> binary = <c>BC</c> hex.</p></example>
+      <p>Additional examples: <c>0101 0110</c> = <c>56</c>; <c>0111 1011</c> = <c>7B</c>; <c>1101 1100</c> = <c>DC</c>; <c>0001 1000</c> = <c>18</c>.</p>
+      <remark><p>Hexadecimal is more compact than binary: <c>B4</c> takes two hex digits rather than eight binary digits (<c>1011 0100</c>).</p></remark>
+      <exercise><statement><p>Convert <c>0111 1011</c> binary to hexadecimal.</p></statement><choices><choice><statement><p><c>7A</c></p></statement><feedback><p>The final group 1011 represents B.</p></feedback></choice><choice correct="yes"><statement><p><c>7B</c></p></statement><feedback><p>Correct: 0111 = 7 and 1011 = B.</p></feedback></choice><choice><statement><p><c>8B</c></p></statement><feedback><p>The first group 0111 equals 7, not 8.</p></feedback></choice></choices></exercise>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="ns-check"><title>Checking Your Work</title>
+    <p>Windows Calculator in <em>Programmer</em> mode displays decimal, hexadecimal, octal, and binary representations. Use it only to check a conversion after completing it yourself.</p>
+    <figure xml:id="ns-calc"><caption>Windows Calculator in Programmer mode.</caption><image source="images/number_systems/windows_calculator.png" width="80%"/></figure>
+    <ol><li><p>Open Calculator in Windows.</p></li><li><p>Choose Programmer mode.</p></li><li><p>Select DEC, HEX, or BIN.</p></li><li><p>Enter your number and compare its representations.</p></li></ol>
+  </subsection>
+  <subsection xml:id="ns-real-world"><title>Binary and Hexadecimal in Everyday Computing</title>
+    <subsubsection xml:id="ns-rgb"><title>RGB Colors</title>
+      <p>Graphics applications use red, green, and blue components, each in the decimal range 0 to 255, or hex <c>00</c> to <c>FF</c>.</p>
+      <pre>Red        Green      Blue
+00 to FF   00 to FF   00 to FF  hex
+0 to 255   0 to 255   0 to 255  decimal</pre>
+      <p>HU Green has hex color <c>#033621</c>: red <c>03</c> (3), green <c>36</c> (54), blue <c>21</c> (33).</p>
+      <p>See <url href="https://www.w3schools.com/colors/colors_hexadecimal.asp">W3Schools Hexadecimal Colors</url>.</p>
+    </subsubsection>
+    <subsubsection xml:id="ns-hex-editor"><title>Viewing File Contents in Hexadecimal</title>
+      <p>A hex editor shows the numeric codes stored in files. A single hex digit corresponds to four bits, making file data easier to inspect.</p>
+      <p>A text file could contain:</p><pre>A a
+1B</pre>
+      <figure xml:id="ns-editor"><caption>Example text editor.</caption><image source="images/number_systems/text_editor.png" width="80%"/></figure>
+      <p>Some common text character codes are: space = <c>20</c> hex, A = <c>41</c> hex, carriage return = <c>0D</c>, and line feed = <c>0A</c>. (The source Markdown listed space as 32 hex; that has been corrected to 20 hex.)</p>
+      <p>Experiment with <url href="https://hexed.it/">HexEd.it</url>: create a small text file, open it, and compare the characters to their hex values.</p>
+      <figure xml:id="ns-hexedit"><caption>Hex editor view.</caption><image source="images/number_systems/hexedit.png" width="80%"/></figure>
+    </subsubsection>
+  </subsection>
+  <subsection xml:id="ns-optional"><title>Optional Explorations</title>
+    <subsubsection xml:id="ns-division"><title>Alternate Method: Repeated Division</title>
+      <ol><li><p>Divide the decimal number by the new base.</p></li><li><p>Record the remainder.</p></li><li><p>Divide the quotient by that base again.</p></li><li><p>Repeat until the quotient is zero.</p></li><li><p>Read the remainders from bottom to top.</p></li></ol>
+      <p>This technique also works with bases 8 and 16 but is not required for CC-01.</p>
+    </subsubsection>
+    <subsubsection xml:id="ns-arithmetic"><title>Binary Arithmetic</title>
+      <p>Computers add and subtract binary numbers. Binary addition follows these rules:</p>
+      <pre>0 + 0 = 0
+0 + 1 = 1
+1 + 0 = 1
+1 + 1 = 10 (binary)</pre>
+      <p>Addition example (5 + 3 = 8):</p><pre>  0101
++ 0011
+------
+  1000</pre>
+      <p>Subtraction example (5 - 3 = 2):</p><pre>  0101
+- 0011
+------
+  0010</pre>
+      <p>Binary arithmetic is not required for CC-01.</p>
+    </subsubsection>
+    <subsubsection xml:id="ns-fun"><title>For Fun</title>
+      <p>There are <em>10 types of people in the world</em>: those who understand binary and those who do not.</p>
+      <ul><li><p><url href="https://www.gocomics.com/foxtrot/2008/09/21">Binary Hopscotch — FoxTrot</url></p></li><li><p><url href="https://foxtrot.com/2025/11/16/binary-sudoku/">Binary Sudoku — FoxTrot</url></p></li></ul><p>11 cheers for binary!</p>
+    </subsubsection>
+  </subsection>
+</section>
